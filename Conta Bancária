@@ -1,0 +1,105 @@
+        #include <iostream>
+        
+        using namespace std;
+        float saldo;
+        string Titular;
+        
+        void Deposita(float valor){
+            saldo = saldo + valor;
+        }
+        
+        int Sacar(float valor){
+            
+            if(valor <= saldo){
+            saldo = saldo - valor;
+            return 1;
+        }
+            return 0;
+        }
+        
+        void CadastraTitular(string nome){
+            Titular=nome;
+        }
+        
+        void MostraSaldo(){
+            cout<<"\n(++++++++++++++++ Extrato Conta +++++++++++++++++++++)";
+            cout<<"\n( - Cliente: "<<Titular;
+		    cout<<"\n( - Saldo Atual       \t\t\t R$ "<<saldo<<")";
+		    cout<<"\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)";
+        }
+        
+        void op(char op){
+            
+            float valor;
+            
+            switch(toupper(op)){
+                
+                case'1':
+                cout<<"\nDigite o valor: ";
+                cin>>valor;
+                Deposita(valor);
+                break;
+                
+                case'2':
+                cout<<"\nDigite o valor: ";
+                cin>>valor;
+                if(!Sacar(valor));
+                cout <<"\nSaldo insuficiente!";
+                break;
+                
+                case'3':
+                MostraSaldo();
+                break;
+                
+                case'4':
+                cout<<"\n(+++++++++++++++++++++ Cadastro +++++++++++++++++++++++)\n";
+                cout<<"\n\nDigite o nome que deseja cadastrar: ";
+                cin>>Titular;
+                cout<<"\n\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)\n\n";
+                CadastraTitular(Titular);
+                break;
+                
+                case'5':
+                break;
+            } 
+        }
+        
+        void mostraMenu(){
+            cout<<"\n\n(++++++++++++++++ Menu da Conta +++++++++++++++++++++)";   
+            cout<<"\n\nDigite uma das operações que deseja realizar\n";
+            cout<<"\nDigite (1) para fazer um Depósito ";
+            cout<<"\nDigite (2) para fazer um Saque ";
+            cout<<"\nDigite (3) para consultar Saldo ";
+            cout<<"\nDigite (4) Cadastrar um titular ";
+            cout<<"\nDigite (5) para sair ";
+            cout<<"\n\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)\n\n";
+        }
+    
+        int main(){
+
+            char operacao ='5';
+            
+            cout<<"\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)";
+            cout<<"\n    Olá bem vindo(a) a nosso auto atendimento ";
+            cout<<"\n    \tA seguir nosso menu estará disponivel ";
+		    cout<<"\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)\n\n\n";
+		    
+		    mostraMenu();
+		    cin>>operacao;
+		    
+		    while(operacao != '5'){
+		        
+		        op(operacao);
+		        //MostraSaldo();
+		        
+		        mostraMenu();
+		        cin>>operacao;
+		       
+            } 
+            cout<<"\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)";
+            cout<<"\n    Obrigado por usar nosso auto atendimento "<<Titular;
+            cout<<"\n    \taté a proxima e tenha um bom dia ";
+            cout<<"\n    \t\tnosso Banco agradece ";
+		    cout<<"\n(++++++++++++++++++++++++++++++++++++++++++++++++++++)";
+            
+        }
