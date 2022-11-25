@@ -1,0 +1,59 @@
+    #include <iostream>
+    #include <string>
+    #include<iomanip>
+    
+    using namespace std;
+    
+    int main()
+    {
+        int N=0, cont=0, cont_apro=0, cont_repro=0, cont_recup=0,cont_media=0;
+        float n1=0, n2=0, n3=0, nota_final=0, media_final=0, menor_nota=10, maior_nota=0;
+        string nome;
+        
+        cout<<"\nDigite o número de alunos "; cin>>N;
+        
+        for(cont=0;cont<=N;cont++){
+            
+            cout<<"\n\nDigite o nome do "<< cont+1 <<"° aluno(a): "; cin>>nome;
+            cout<<"\nDigite a primeira nota: "; cin>>n1;
+            cout<<"\nDigite a segunda nota: "; cin>>n2;
+            cout<<"\nDigite a terceira nota: "; cin>>n3;
+            
+            nota_final=(n1 + n2 + 2*n3)/4.0;
+            cont_media=cont_media+nota_final;
+            //cout<<setprecision(1)<<fixed;
+            
+            if(nota_final>=7){
+                cout<<"\nO aluno está aprovado ";
+                cont_apro++;
+            }
+            if(nota_final<5){
+                cout<<"\nO aluno está reprovado ";
+                cont_repro++; 
+            }
+            if(nota_final<7 && nota_final>5){
+                cout<<"\nO aluno está em recuperação ";
+                cont_recup++;
+            }
+            
+            cout<<"e sua nota final foi "<<nota_final;
+            
+            if (nota_final > maior_nota){
+                maior_nota = nota_final;
+            }
+            if (nota_final < menor_nota){
+                menor_nota = nota_final;
+            }
+        }
+        media_final=cont_media/N;
+        cout<<"\n\nMédia de notas finais "<<media_final<<"\n";
+        cout<<"\n**************************************************";
+        cout<<"\nMaior nota final "<<maior_nota;
+        cout<<"\nMenor nota final "<<menor_nota;
+        cout<<"\n**************************************************";
+        cout<<"\nNúmero de alunos aprovados foi "<<cont_apro;
+        cout<<"\nNúmero de alunos reprovados foi "<<cont_repro;
+        cout<<"\nNúmero de alunos em recuperação "<<cont_recup;
+
+        return 0;
+    }
