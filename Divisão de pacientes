@@ -1,0 +1,30 @@
+/******************************************************************************
+
+Problema dado por minha mulher kkkkkkk
+
+Divisão de pacientes do seu setor!!!
+
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N, p, cont, divisao;
+    float resto;
+    
+    cout<<"Número de tecnicos e técnicas de enfermagem no plantão "; cin>>N;
+    cout<<"Número de pacientes "; cin>>p;
+    
+    for(cont=1;cont<=N;cont++){
+        
+    divisao=p/N;
+    resto=p % N;
+    
+    }
+    
+    cout<<"\n Número de pacientes para cada técnico é "<<divisao<<" sobram "<<resto<<" paciente(s) ";
+
+    return 0;
+}
